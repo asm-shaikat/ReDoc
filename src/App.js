@@ -1,24 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
-
+import Signup from './components/Signup';
+import Signin from './components/Signin';
+import { BrowserRouter,Routes,Route } from 'react-router-dom';
+import Home from './pages/Home';
+import Nopage from './pages/Nopage';
+import Nav from './components/Nav';
+import Blogs from './pages/Blogs';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Welcome to docker
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+        
+        <Routes>
+        
+            <Route path='/'       element={<Home/>}></Route>
+            <Route path='/signin' element={<Signin />}></Route>
+            <Route path='/signup' element={<Signup/>} ></Route>
+            <Route path='/blogs'   element={<Blogs/>}></Route>
+            <Route path='*'       element={<Nopage/>} ></Route>
+
+        </Routes>
+    </BrowserRouter>
   );
 }
 
